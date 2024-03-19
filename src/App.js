@@ -1,17 +1,30 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { Typography, Button } from "@mui/material";
 import NavBar from "./components/NavBar";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import HeroSection from "./components/HeroSection";
+import { Container } from "@mui/material";
+import CakeSection from "./components/CakeSection";
+import ContactUs from "./components/ContactUs";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#864313",
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <Button variant="text">Text</Button>
-      <Button variant="contained">Contained</Button>
-      <Button variant="outlined">Outlined</Button>
-      <Typography variant="h1" gutterBottom sx={{backgroundColor:"red", color:"white"}}>I am heading</Typography>
+    <ThemeProvider theme={theme}>
       <NavBar></NavBar>
-    </div>
+      <Container>
+        <HeroSection></HeroSection>
+        <CakeSection></CakeSection>
+        <ContactUs></ContactUs>
+      </Container>
+    </ThemeProvider>
   );
 }
 
